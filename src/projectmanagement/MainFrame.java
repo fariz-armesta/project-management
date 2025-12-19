@@ -17,6 +17,8 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        setTitle("Project Management System - Armesta");
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -162,10 +164,35 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String projectName = jTextField1.getText();
+        String startDate = jTextField2.getText();
+        String status = jTextField3.getText();
+        String priority = jComboBox1.getSelectedItem().toString();
+        String description = jTextArea1.getText();
         
-        javax.swing.JOptionPane.showMessageDialog(this, projectName, "Project Information", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        String message =
+        "Project Name: " + projectName + "\n" +
+        "Start Date: " + startDate + "\n" +
+        "Status: " + status + "\n" +
+        "Priority: " + priority + "\n" +
+        "Description:\n" + description;
+
+        javax.swing.JOptionPane.showMessageDialog(
+            this,
+            message,
+            "Project Information",
+            javax.swing.JOptionPane.INFORMATION_MESSAGE
+        );
+        
+        clearForm();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void clearForm(){
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jComboBox1.setSelectedIndex(0);
+        jTextArea1.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
