@@ -4,6 +4,9 @@
  */
 package projectmanagement;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author USER-PC
@@ -172,16 +175,19 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String projectName = jTextField1.getText();
-        String startDate = jDateChooser1.getDate().toString();
-        String finishDate = jDateChooser2.getDate().toString();
+        Date startDate = jDateChooser1.getDate();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String dbStartDate = sdf.format(startDate);
+        Date finishDate = jDateChooser2.getDate();
+        String dbFinishDate = sdf.format(finishDate);
         String status = jTextField3.getText();
         String priority = jComboBox1.getSelectedItem().toString();
         String description = jTextArea1.getText();
         
         String message =
         "Project Name: " + projectName + "\n" +
-        "Start Date: " + startDate + "\n" +
-        "Plan Finish Date: " + finishDate + "\n" +        
+        "Start Date: " + dbStartDate + "\n" +
+        "Plan Finish Date: " + dbFinishDate + "\n" +        
         "Status: " + status + "\n" +
         "Priority: " + priority + "\n" +
         "Description:\n" + description;
